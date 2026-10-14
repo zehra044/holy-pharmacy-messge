@@ -1,0 +1,10 @@
+// This prevents installed dependencies, private environment variables, and generated files from accidentally being committed to Git.
+node_modules/
+.env
+.env.*
+!.env.example
+
+coverage/
+dist/
+npm-debug.log*
+.DS_Store
