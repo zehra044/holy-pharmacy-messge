@@ -1,14 +1,15 @@
 {
-  "name": "barwaaqo-trading-backend",
+  "name": "holy-pharmacy-backend",
   "version": "1.0.0",
   "description": "Backend API for Barwaaqo Trading customer credit and payment management",
   "main": "src/server.js",
- "scripts": {
+  "scripts": {
     "start": "node src/server.js",
     "dev": "node --watch src/server.js",
-    "test": "node --test"
+    "test": "node --test",
+    "seed": "node prisma/seed.js"
   },
-   "keywords": [
+  "keywords": [
     "barwaaqo-trading",
     "backend",
     "express",
@@ -16,8 +17,15 @@
   ],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
-    "express": "^5.3.0"
+    "@prisma/client": "^6.19.3",
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^18.0.8",
+    "express": "^5.3.0",
+    "jsonwebtoken": "^9.0.3"
+  },
+  "devDependencies": {
+    "prisma": "^6.19.3"
   }
 }

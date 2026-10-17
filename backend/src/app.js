@@ -1,17 +1,22 @@
-
-const express = require('express');
-
+import express from 'express';
+import authRoutes from './routes/auth.routes.js';
+import { notFound, errorHandler } from './middleware/errorHandler.js';
+import userRoutes from './routes/user.routes.js';
 const app = express();
 
-// Parse incoming JSON request bodies.
 app.use(express.json());
-
-// Health check: confirms the API is running.
+app.use('/api/users', userRoutes);
 app.get('/api/health', (req, res) => {
   res.status(200).json({
     status: 'ok',
-    message: 'Barwaaqo Trading API is running',
+    message: 'Holy Pharmacy API is running',
   });
 });
 
-module.exports = app;
+app.use('/api/auth', authRoutes);
+
+// These two must stay last.
+app.use(notFound);
+app.use(errorHandler);
+
+export default app;
