@@ -12,3 +12,4 @@ export const JWT_SECRET = required('JWT_SECRET');
 export const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '8h';
 export const MAX_CREDIT_AMOUNT = Number(process.env.MAX_CREDIT_AMOUNT || 10000);
 export const MAX_BACKDATE_DAYS = Number(process.env.MAX_BACKDATE_DAYS || 90);
+export const MAX_PAYMENT_AMOUNT = Number(process.env.MAX_PAYMENT_AMOUNT || 10000);
