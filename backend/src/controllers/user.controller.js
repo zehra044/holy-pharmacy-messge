@@ -17,7 +17,18 @@ export async function createUser(req, res, next) {
 
 export async function listUsers(req, res, next) {
   try {
-    const users = await userService.listUsers(req.user);
+    const { isActive } = req.query;
+
+    if (isActive !== undefined && isActive !== 'true' && isActive !== 'false') {
+      return res.status(400).json({ error: 'isActive must be "true" or "false"' });
+    }
+
+    const filters = {};
+    if (isActive !== undefined) {
+      filters.isActive = isActive === 'true'; // query values are strings, so convert
+    }
+
+    const users = await userService.listUsers(req.user, filters);
     res.status(200).json({ users });
   } catch (err) {
     next(err);

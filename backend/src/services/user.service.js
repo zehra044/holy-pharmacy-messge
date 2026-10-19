@@ -39,9 +39,12 @@ export async function createUser(actor, { fullName, email, password, role }) {
     throw err;
   }
 }
-export async function listUsers(actor) {
+export async function listUsers(actor, filters = {}) {
   return prisma.user.findMany({
-    where: { businessId: actor.businessId },
+    where: {
+      businessId: actor.businessId,
+      ...(filters.isActive !== undefined && { isActive: filters.isActive }),
+    },
     select: { id: true, fullName: true, email: true, role: true, isActive: true, createdAt: true },
     orderBy: { createdAt: 'asc' },
   });
