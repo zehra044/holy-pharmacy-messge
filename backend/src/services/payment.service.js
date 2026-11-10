@@ -11,6 +11,9 @@ const paymentSelect = {
   status: true,
   createdAt: true,
   createdBy: { select: { id: true, fullName: true } },
+  reversedAt: true,
+  reversalReason: true,
+  reversedBy: { select: { id: true, fullName: true } },
 };
 
 function httpError(status, message) {
