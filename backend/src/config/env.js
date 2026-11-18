@@ -15,3 +15,18 @@ export const MAX_BACKDATE_DAYS = Number(process.env.MAX_BACKDATE_DAYS || 90);
 export const MAX_PAYMENT_AMOUNT = Number(process.env.MAX_PAYMENT_AMOUNT || 10000);
 export const MANAGER_REVERSAL_HOURS = Number(process.env.MANAGER_REVERSAL_HOURS || 24);
 export const MANAGER_REVERSAL_MAX_AMOUNT = Number(process.env.MANAGER_REVERSAL_MAX_AMOUNT || 1000);
+
+
+import 'dotenv/config';
+
+export const PORT = Number(process.env.PORT || 3000);
+
+export const REMINDER_COOLDOWN_DAYS = Number(
+  process.env.REMINDER_COOLDOWN_DAYS || 7
+);
+
+export const MAX_REMINDER_BATCH = Number(
+  process.env.MAX_REMINDER_BATCH || 100
+);
+
+
